@@ -150,25 +150,29 @@
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <h1 class="text-center title" style="color:white;">Reserve yours today</h1>
-            <form class="contact-form">
+            <form id="formcarry-form" action="https://formcarry.com/s/4sgMmCNaTxq" method="POST" accept-charset="UTF-8" name="contact">
+              <input hidden="true" name="source" value="flextram"></input>
               <div class="row">
                 <div class="col-md-6">
+                  <input type="hidden" name="_gotcha">
                   <label style="color:white;">Name</label>
-                  <input class="form-control" placeholder="Name">
+                  <input placeholder="Name" name="name" type="text" tabindex="1" class="form-control" required>
                 </div>
                 <div class="col-md-6">
                   <label style="color:white;">Email</label>
-                  <input class="form-control" placeholder="Email">
+                  <input placeholder="Email" name="email" type="email" tabindex="2" class="form-control"  required>
                 </div>
               </div>
-              <label style="color:white;">Message</label>
-              <textarea class="form-control" rows="4" placeholder="What can we do ya for?"></textarea>
+              <br />
+                  <label style="color:white;">Message</label>
+                  <textarea class="form-control"  placeholder="How can we be helpful?" name="Message" tabindex="4" required></textarea>
+              <br />
               <div class="row">
                 <div class="col-md-4 offset-md-4">
-                  <button class="btn btn-danger btn-lg btn-fill">Send Message</button>
+                  <button class="btn btn-danger btn-lg btn-fill" type="submit" id="contact-submit" data-submit="...Sending">Send</button>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -216,9 +220,28 @@
   <!-- Control Center for Paper Kit: parallax effects, scripts for the example pages etc -->
   <script src="assets/js/paper-kit.js?v=2.3.0" type="text/javascript"></script>
   <!--  Google Maps Plugin    -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!--  Plugin for presentation page - isometric cards  -->
   <script src="assets/js/plugins/presentation-page/main.js"></script>
+  <script>
+    $("#formcarry-form").submit(function(event){
+      event.preventDefault()
+      event.stopPropagation()
+      var href = $(this).attr("action");
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: href,
+        data: $(this).serialize(),
+        success: function(response){
+          if(response.status == "success"){
+            $(".alert-box").show()
+          }else{
+						alert("An error occured." + response.message);
+          }
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
