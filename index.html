@@ -32,6 +32,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
   <!-- CSS Files -->
   <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/css/custom.css" rel="stylesheet" />
   <link href="assets/css/paper-kit.css?v=2.3.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="assets/demo/demo.css" rel="stylesheet" />
@@ -145,6 +146,23 @@
         <br />
       </div>
     </div>
+   <section class="customer-logos slider">
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/Coachella.svg.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/besame_mucho.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/bonnaroo.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/desert_daze.jpeg"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/edc.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/innings.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/Insomniac.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/lollapalooza.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/loversandfriends.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/Rolling_Loud.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/stagecoach.jpeg"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/Tesla_Motors.svg.png"></div>
+      <div class="slide vertical-center" style="display: flex;"><img src="assets/img/logos/wwwy.webp"></div>
+
+   </section>
+   <div style="height:150px;"></div>
     <div class="section section-dark text-center landing-section">
       <div class="container">
         <div class="row">
@@ -222,6 +240,7 @@
   <!--  Google Maps Plugin    -->
   <!--  Plugin for presentation page - isometric cards  -->
   <script src="assets/js/plugins/presentation-page/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
   <script>
     $("#formcarry-form").submit(function(event){
       event.preventDefault()
@@ -241,6 +260,29 @@
         }
       });
     });
+
+    $(document).ready(function(){
+    $('.customer-logos').slick({
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1500,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 4
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 3
+            }
+        }]
+    });
+});
   </script>
 </body>
 
